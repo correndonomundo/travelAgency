@@ -1,0 +1,16 @@
+<table class="table table-light">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">NameHotel</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Price</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${hotelList}" var="hotel">
+        <%@include file="hotel_row.jspf" %>
+    </c:forEach>
+    </tbody>
+</table>

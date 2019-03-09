@@ -1,0 +1,12 @@
+<form:form cssClass="form-inline" method="post" modelAttribute="createclient"
+           action="/clients/create">
+    <div class="form-group mb-2">
+        <form:label path="cnp">cnp</form:label>
+        <form:input path="cnp" type="text" placeholder="Your cnp ..."/>
+    </div>
+    <div class="form-group mb-2 mx-sm-3">
+        <form:label path="name">name</form:label>
+        <form:input path="name" type="text" placeholder="Your name..."/>
+    </div>
+    <form:button type="submit" class="btn btn-primary mb-2">Submit</form:button>
+</form:form>

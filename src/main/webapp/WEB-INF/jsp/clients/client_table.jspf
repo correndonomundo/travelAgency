@@ -1,0 +1,26 @@
+<table class="table table-light">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Cnp</th>
+        <th scope="col">Name</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>${lastClient.id}</td>
+        <td>${lastClient.cnp}</td>
+        <td>${lastClient.name}</td>
+        <td>
+            <form:form cssClass="form-inline" method="post" action="/clients/delete" modelAttribute="deleteclient">
+                <form:hidden path="id" value="${lastClient.id}" />
+                <form:button type="submit" class="btn btn-danger delete-btn">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </form:button>
+            </form:form>
+        </td>
+    </tr>
+
+    </tbody>
+</table>

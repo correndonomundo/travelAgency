@@ -1,0 +1,16 @@
+<form:form cssClass="form-inline" method="post" modelAttribute="createHotel"
+           action="/hotels/createH">
+    <div class="form-group mb-2">
+        <form:label path="nameHotel">nameHotel</form:label>
+        <form:input path="nameHotel" type="text" placeholder="Hotel name ..."/>
+    </div>
+    <div class="form-group mb-2 mx-sm-3">
+        <form:label path="destination">destination</form:label>
+        <form:input path="destination" type="text" placeholder="Your desnation..."/>
+    </div>
+    <div class="form-group mb-2 mx-sm-3">
+            <form:label path="price">price</form:label>
+            <form:input path="price" type="double" placeholder="Hotel price..."/>
+        </div>
+    <form:button type="submit" class="btn btn-primary mb-2">Submit</form:button>
+</form:form>
