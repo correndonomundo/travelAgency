@@ -27,4 +27,9 @@ public class HotelServiceImpl implements HotelService{
     public List<Hotel> searchByName(String nameHotel) {
           return hotelRepository.findAllByNameHotel(nameHotel);
     }
+
+    @Override
+    public void getReservation(int idHotel, int nrCamere) {
+
+    }
 }
