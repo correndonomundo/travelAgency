@@ -19,12 +19,12 @@ public class HotelServiceImpl implements HotelService{
     }
 
     @Override
-    public void searchByDestination(String destination) {
-        hotelRepository.findAllByDestination(destination);
+    public List<Hotel> searchByDestination(String destination) {
+        return  hotelRepository.findAllByDestination(destination);
     }
 
     @Override
-    public void searchByName(String nameHotel) {
-          hotelRepository.findAllByNameHotel(nameHotel);
+    public List<Hotel> searchByName(String nameHotel) {
+          return hotelRepository.findAllByNameHotel(nameHotel);
     }
 }

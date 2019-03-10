@@ -8,8 +8,8 @@ public interface HotelService {
 
     public List<Hotel> getAllHotels();
 
-    public void searchByDestination(String destination);
+    public List<Hotel> searchByDestination(String destination);
 
-    public void searchByName(String nameHotel);
+    public List<Hotel> searchByName(String nameHotel);
 
 }
