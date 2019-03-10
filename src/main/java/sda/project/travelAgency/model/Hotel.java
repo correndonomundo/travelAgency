@@ -10,7 +10,7 @@ public class Hotel {
     @GeneratedValue
     private int idHotel;
 
-    @Column(name = "name_hotel")
+    @Column
     private String nameHotel;
 
     @Column
@@ -18,6 +18,17 @@ public class Hotel {
 
     @Column
     private double price;
+
+    @Column
+    private int nrCamere;
+
+    public int getNrCamere() {
+        return nrCamere;
+    }
+
+    public void setNrCamere(int nrCamere) {
+        this.nrCamere = nrCamere;
+    }
 
     public int getIdHotel() {
         return idHotel;
@@ -49,5 +60,16 @@ public class Hotel {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "idHotel=" + idHotel +
+                ", nameHotel='" + nameHotel + '\'' +
+                ", destination='" + destination + '\'' +
+                ", price=" + price +
+                ", nrCamere=" + nrCamere +
+                '}';
     }
 }

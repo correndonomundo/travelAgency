@@ -8,7 +8,8 @@ public interface HotelService {
 
     public List<Hotel> getAllHotels();
 
-    public Hotel createHotel(String nameHotel, String destination, double price);
+    public void searchByDestination(String destination);
 
-    public void deleteHotel(int id);
+    public void searchByName(String nameHotel);
+
 }

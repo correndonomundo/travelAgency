@@ -4,13 +4,22 @@
         <th scope="col">id</th>
         <th scope="col">NameHotel</th>
         <th scope="col">Destination</th>
+        <th scope="col">nrCamere</th>
         <th scope="col">Price</th>
         <th></th>
     </tr>
     </thead>
-    <tbody>
-    <c:forEach items="${hotelList}" var="hotel">
-        <%@include file="hotel_row.jspf" %>
-    </c:forEach>
-    </tbody>
+<tbody>
+    <div class="list-group">
+        <c:forEach items="${hotelList}" var="hotel">
+        <tr>
+           <td>${hotel.getIdHotel()}</td>
+           <td>${hotel.getNameHotel()}</td>
+           <td>${hotel.getDestination()}</td>
+           <td>${hotel.getNrCamere()}</td>
+           <td>${hotel.getPrice()}</td>
+        </tr>
+        </c:forEach>
+    </div>
+</tbody>
 </table>

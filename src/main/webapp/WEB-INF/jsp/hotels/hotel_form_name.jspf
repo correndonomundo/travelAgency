@@ -1,0 +1,8 @@
+<form:form cssClass="form-inline" method="post" modelAttribute="searchN"
+           action="/hotels/searchByName">
+    <div class="form-group mb-2 mx-sm-3">
+        <form:label path="nameHotel">nameHotel</form:label>
+        <form:input path="nameHotel" type="text" placeholder="Your name hotel..."/>
+    </div>
+    <form:button type="submit" class="btn btn-primary mb-2">Search</form:button>
+</form:form>

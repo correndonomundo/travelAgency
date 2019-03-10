@@ -19,16 +19,12 @@ public class HotelServiceImpl implements HotelService{
     }
 
     @Override
-    public Hotel createHotel(String nameHotel, String destination, double price) {
-        Hotel hotel = new Hotel();
-        hotel.setNameHotel(nameHotel);
-        hotel.setDestination(destination);
-        hotel.setPrice(price);
-        return hotelRepository.save(hotel);
+    public void searchByDestination(String destination) {
+        hotelRepository.findAllByDestination(destination);
     }
 
     @Override
-    public void deleteHotel(int id) {
-        hotelRepository.deleteById(id);
+    public void searchByName(String nameHotel) {
+          hotelRepository.findAllByNameHotel(nameHotel);
     }
 }

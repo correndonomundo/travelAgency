@@ -1,0 +1,8 @@
+
+<!-- The form -->
+<form:form cssClass="form-inline" method="post" modelAttribute="searchD"
+                      action="/hotels/searchByDestination">
+ <input type="text" placeholder="Search destination.." name="search">
+ <button type="submit"><i class="fa fa-search">
+ </i></button>
+</form:form>

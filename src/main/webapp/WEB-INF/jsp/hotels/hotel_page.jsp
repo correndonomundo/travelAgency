@@ -7,8 +7,11 @@
 
 
     <div class="row">
-        <%@include file="hotel_form.jspf" %>
+        <%@include file="hotel_form_dest.jspf" %>
     </div>
+    <div class="row">
+            <%@include file="hotel_form_name.jspf" %>
+        </div>
     <div class="row">
         <%@include file="hotel_table.jspf" %>
     </div>

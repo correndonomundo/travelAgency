@@ -2,6 +2,7 @@ package sda.project.travelAgency.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,23 +23,21 @@ public class HotelController {
     public String showHotels(Model model){
         List<Hotel> hotelList = hotelService.getAllHotels();
         model.addAttribute("hotelList",hotelList);
-        model.addAttribute("createHotel",new Hotel());
-        model.addAttribute("deleteHotel", new Hotel());
+        model.addAttribute("searchD", new Hotel());
+        model.addAttribute("searchN", new Hotel());
 
         return "hotels/hotel_page";
     }
 
-    @RequestMapping(value = "/crateH", method = RequestMethod.POST)
-    public String createHotel(@ModelAttribute("createHotel") Hotel hotel){
-        hotelService.createHotel(hotel.getNameHotel(), hotel.getDestination(), hotel.getPrice());
-
+    @RequestMapping(value = "/searchByDestination", method = RequestMethod.POST)
+    public String searchByDestination(@ModelAttribute("searchD") Hotel hotel){
+        hotelService.searchByDestination(hotel.getDestination());
         return "redirect:/hotels";
     }
 
-    @RequestMapping(value = "/deleteH", method = RequestMethod.POST)
-    public String deleteHotel(@ModelAttribute("deleteHotel") Hotel hotel){
-        hotelService.deleteHotel(hotel.getIdHotel());
-
+    @RequestMapping(value = "/searchByName", method = RequestMethod.POST)
+    public String searchByName(@ModelAttribute("searchN") Hotel hotel){
+//        hotelService.searchByName(hotel.getNameHotel());
         return "redirect:/hotels";
     }
 }

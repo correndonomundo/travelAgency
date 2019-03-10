@@ -13,7 +13,7 @@
                 <a class="nav-link" href="<c:url value="/clients" />">Clients</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Hotels</a>
+                <a class="nav-link" href="<c:url value="/hotels" />">Hotels</a>
             </li>
             <li class="nav-item">
                  <a class="nav-link" href="#">Transport</a>
