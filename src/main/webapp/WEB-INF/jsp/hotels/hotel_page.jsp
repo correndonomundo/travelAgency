@@ -15,5 +15,7 @@
     <div class="row">
         <%@include file="hotel_table.jspf" %>
     </div>
+
+
 </div>
 <%@ include file="../princCommand/footer.jspf" %>

@@ -6,6 +6,7 @@
         <th scope="col">Destination</th>
         <th scope="col">nrCamere</th>
         <th scope="col">Price</th>
+        <th scope="col">SelectHotel</th>
         <th></th>
     </tr>
     </thead>
@@ -18,6 +19,10 @@
            <td>${hotel.getDestination()}</td>
            <td>${hotel.getNrCamere()}</td>
            <td>${hotel.getPrice()}</td>
+           <td><div class="row">
+                   <a class="nav-link"><button class="btn btn-primary" type="submit">Add Hotel</button></a>
+               </div>
+            </td>
         </tr>
         </c:forEach>
     </div>
