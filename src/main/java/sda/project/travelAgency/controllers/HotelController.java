@@ -22,6 +22,7 @@ public class HotelController {
     public String showHotels(Model model){
         List<Hotel> hotelList = hotelService.getAllHotels();
         model.addAttribute("hotelList",hotelList);
+        model.addAttribute("reservation",new Hotel());
 
         return "hotels/hotel_page";
     }
@@ -32,7 +33,6 @@ public class HotelController {
         List<Hotel> hotelList = hotelService.searchByDestination(pSearchTerm);
         model.addAttribute("hotelList",hotelList);
 
-
         return "hotels/hotel_page";
     }
 
@@ -42,6 +42,12 @@ public class HotelController {
         model.addAttribute("hotelList",hotelList);
 
         return "hotels/hotel_page";
+    }
+
+    @RequestMapping(value = "/getReservation")
+    public String addHotelToUser(@ModelAttribute("reservation") Hotel hotel){
+        hotelService.getReservation(hotel.getIdHotel(),hotel.getNrCamere());
+        return "redirect:/home";
     }
 
 }

@@ -20,7 +20,7 @@
            <td>${hotel.getNrCamere()}</td>
            <td>${hotel.getPrice()}</td>
            <td><div class="row">
-                   <a class="nav-link"><button class="btn btn-primary" type="submit">Add Hotel</button></a>
+                   <a class="nav-link"><%@include file="hotel_form_reservation.jspf" %></a>
                </div>
             </td>
         </tr>
