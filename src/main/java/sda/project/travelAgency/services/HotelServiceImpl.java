@@ -34,4 +34,11 @@ public class HotelServiceImpl implements HotelService{
         hotel.setNrCamere(hotel.getNrCamere()-nrCamere);
        return hotelRepository.save(hotel);
     }
+
+    @Override
+    public void getSum(int nrCamere, double price) {
+        Hotel hotel = new Hotel();
+       double x =  hotel.getNrCamere() * hotel.getPrice();
+
+    }
 }
