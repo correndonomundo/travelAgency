@@ -47,7 +47,8 @@ public class HotelController {
     @RequestMapping(value = "/getReservation")
     public String addHotelToUser(@ModelAttribute("reservation") Hotel hotel){
         hotelService.getReservation(hotel.getIdHotel(),hotel.getNrCamere());
-        return "redirect:/home";
+        return "redirect:/";
     }
+
 
 }

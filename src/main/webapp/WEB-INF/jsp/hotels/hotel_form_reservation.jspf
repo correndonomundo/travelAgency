@@ -1,8 +1,8 @@
 <form:form cssClass="form-inline" method="post" modelAttribute="reservation"
            action="/hotels/getReservation">
+            <form:hidden path="idHotel" value="${hotel.idHotel}" />
     <div class="form-group mb-2 mx-sm-3">
-        <form:label path="nrCamere">nrCamere</form:label>
-        <form:input path="nrCamere" type="text" placeholder="The number of rooms..."/>
+        <form:input path="nrCamere" type="text" placeholder="Get number of rooms..."/>
     </div>
-    <form:button type="submit" class="btn btn-primary mb-2">Add Hotel</form:button>
+    <form:button type="submit" class="btn btn-primary mb-2">AddHotel</form:button>
 </form:form>

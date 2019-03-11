@@ -12,6 +12,6 @@ public interface HotelService {
 
     public List<Hotel> searchByName(String nameHotel);
 
-    public void getReservation(int idHotel, int nrCamere);
+    public Hotel getReservation(int idHotel, int nrCamere);
 
 }
