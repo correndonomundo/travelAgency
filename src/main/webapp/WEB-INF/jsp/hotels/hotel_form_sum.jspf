@@ -3,6 +3,6 @@
            <form:hidden path="idHotel" value="${hotel.idHotel}" />
             <form:hidden path="nrCamere" value="${hotel.nrCamere}" />
     <div class="form-group mb-2 mx-sm-3">
-        <form:input path="price" value="${hotel.price}"/>
+        <input path="price" value="${hotel.price}"/>
     </div>
 </form:form>

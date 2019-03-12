@@ -48,10 +48,11 @@ public class HotelController {
     @RequestMapping(value = "/getReservation")
     public String addHotelToUser(@ModelAttribute("reservation") Hotel hotel){
         hotelService.getReservation(hotel.getIdHotel(),hotel.getNrCamere());
+
         return "redirect:/hotels/hotel_page_sum";
     }
 
-    @RequestMapping(value = "/getSum")
+    @RequestMapping(value = "/getSum", method = RequestMethod.POST)
     public String addSum(@ModelAttribute("sum") Hotel hotel){
         hotelService.getSum(hotel.getIdHotel(),hotel.getNrCamere(),hotel.getPrice());
 
