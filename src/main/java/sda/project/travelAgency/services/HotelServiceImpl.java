@@ -32,13 +32,16 @@ public class HotelServiceImpl implements HotelService{
     public Hotel getReservation(int idHotel, int nrCamere) {
         Hotel hotel = hotelRepository.getOne(idHotel);
         hotel.setNrCamere(hotel.getNrCamere()-nrCamere);
-       return hotelRepository.save(hotel);
+
+        return hotelRepository.save(hotel);
     }
 
     @Override
-    public void getSum(int nrCamere, double price) {
-        Hotel hotel = new Hotel();
-       double x =  hotel.getNrCamere() * hotel.getPrice();
+    public void getSum(int idHotel,int nrCamere, double price) {
+        Hotel hotel = hotelRepository.getOne(idHotel);
+        HotelService hotelService = new HotelServiceImpl();
+        Hotel hl = hotelService.getReservation(hotel.getIdHotel(),hotel.getNrCamere());
+        double pretRezervare = hl.getNrCamere() * hotel.getPrice();
 
     }
 }

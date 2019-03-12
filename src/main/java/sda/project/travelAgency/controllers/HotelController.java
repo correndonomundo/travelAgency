@@ -23,6 +23,7 @@ public class HotelController {
         List<Hotel> hotelList = hotelService.getAllHotels();
         model.addAttribute("hotelList",hotelList);
         model.addAttribute("reservation",new Hotel());
+        model.addAttribute("sum", new Hotel());
 
         return "hotels/hotel_page";
     }
@@ -47,7 +48,14 @@ public class HotelController {
     @RequestMapping(value = "/getReservation")
     public String addHotelToUser(@ModelAttribute("reservation") Hotel hotel){
         hotelService.getReservation(hotel.getIdHotel(),hotel.getNrCamere());
-        return "redirect:/"; //hotel_page_sum.jsp
+        return "redirect:/hotels/hotel_page_sum";
+    }
+
+    @RequestMapping(value = "/getSum")
+    public String addSum(@ModelAttribute("sum") Hotel hotel){
+        hotelService.getSum(hotel.getIdHotel(),hotel.getNrCamere(),hotel.getPrice());
+
+        return "redirect:/hotels/hotel_page_sum";
     }
 
 

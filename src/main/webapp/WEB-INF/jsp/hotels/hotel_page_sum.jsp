@@ -8,7 +8,9 @@
   <h1 class"row">
      Rezervarea a fost facuta cu succes!!!
   </h1>
-     <%@include file="hotel_form_sum.jspf" %>
+     <div class="sum">
+         Pretul este: <%@ include file="hotel_form_sum.jspf" %>
+     </div>
   <div>
 
 </div>
