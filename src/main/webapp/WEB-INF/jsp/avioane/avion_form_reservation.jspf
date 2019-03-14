@@ -1,0 +1,8 @@
+<form:form cssClass="form-inline" method="post" modelAttribute="reservation"
+           action="/avioane/getReservation">
+            <form:hidden path="idCursa" value="${avion.idCursa}" />
+    <div class="form-group mb-2 mx-sm-3">
+        <form:input path="nrLocuri" type="text" placeholder="Get number of places..."/>
+    </div>
+    <form:button type="submit" class="btn btn-primary mb-2">AddAvion</form:button>
+</form:form>

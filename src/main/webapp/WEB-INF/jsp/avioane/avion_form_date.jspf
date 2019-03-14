@@ -1,0 +1,6 @@
+<form:form cssClass="form-inline" method="get" action="/avioane/searchByDate">
+ <input type="text" placeholder="Travel date.." name="searchTermDate">
+ <button type="submit"><i class="fa fa-search">
+
+ </i></button>
+</form:form>

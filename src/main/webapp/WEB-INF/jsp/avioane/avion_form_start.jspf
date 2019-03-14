@@ -1,0 +1,7 @@
+<form:form cssClass="form-inline" method="get" action="/avioane/searchByStartPoint">
+ <input type="text" placeholder="Your Start Point.." name="searchTermStart">
+
+ <button type="submit"><i class="fa fa-search">
+
+ </i></button>
+</form:form>

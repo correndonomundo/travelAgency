@@ -1,0 +1,6 @@
+<form:form cssClass="form-inline" method="get" action="/avioane/searchByDestination">
+ <input type="text" placeholder="Your destination.." name="searchTerm">
+ <button type="submit"><i class="fa fa-search">
+
+ </i></button>
+</form:form>

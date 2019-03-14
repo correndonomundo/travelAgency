@@ -1,0 +1,32 @@
+<table class="table table-light">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Numar Zbor</th>
+        <th scope="col">Start point</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Date</th>
+        <th scope="col">Price</th>
+         <th scope="col">Locuri disponibile</th>
+        <th scope="col">Select flight</th>
+        <th></th>
+    </tr>
+    </thead>
+<tbody>
+    <div class="list-group">
+        <c:forEach items="${avionList}" var="avion">
+        <tr>
+           <td>${avion.getIdCursa()}</td>
+           <td>${avion.getStartPoint()}</td>
+           <td>${avion.getDestination()}</td>
+           <td>${avion.getDate()}</td>
+           <td>${avion.getPrice()}</td>
+           <td>${avion.getNrLocuri()}</td>
+           <td><div class="row">
+                   <a class="nav-link"><%@include file="avion_form_reservation.jspf" %></a>
+               </div>
+            </td>
+        </tr>
+        </c:forEach>
+    </div>
+</tbody>
+</table>
