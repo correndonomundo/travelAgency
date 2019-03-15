@@ -1,5 +1,5 @@
 <form:form cssClass="form-inline" method="get" action="/avioane/searchByStartPoint">
- <input type="text" placeholder="Your Start Point.." name="searchTermStart">
+ <input type="text" placeholder="Your Start Point.." name="searchTermStartPoint">
 
  <button type="submit"><i class="fa fa-search">
 

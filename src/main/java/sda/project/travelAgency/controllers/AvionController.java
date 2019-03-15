@@ -33,6 +33,7 @@ public class AvionController {
     public String Search(Model model, @RequestParam("searchTerm") String pSearchTerm) {
         List<Avion> avionList = avionService.searchByDestination(pSearchTerm);
         model.addAttribute("avionList",avionList);
+        model.addAttribute("reservation", new Avion());
 
         return "avioane/avioane_page";
     }
@@ -41,6 +42,7 @@ public class AvionController {
     public String Search2(Model model, @RequestParam("searchTermDate") String pSearchTerm) {
         List<Avion> avionList = avionService.searchByDate(pSearchTerm);
         model.addAttribute("avionList",avionList);
+        model.addAttribute("reservation", new Avion());
 
         return "avioane/avioane_page";
     }
@@ -49,6 +51,7 @@ public class AvionController {
     public String Search3(Model model, @RequestParam("searchTermStartPoint") String pSearchTerm) {
         List<Avion> avionList = avionService.searchByStartPoint(pSearchTerm);
         model.addAttribute("avionList",avionList);
+        model.addAttribute("reservation", new Avion());
 
         return "avioane/avioane_page";
     }

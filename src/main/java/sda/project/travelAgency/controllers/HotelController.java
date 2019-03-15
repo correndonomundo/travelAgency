@@ -33,6 +33,7 @@ public class HotelController {
     public String Search(Model model, @RequestParam("searchTerm") String pSearchTerm) {
         List<Hotel> hotelList = hotelService.searchByDestination(pSearchTerm);
         model.addAttribute("hotelList",hotelList);
+        model.addAttribute("reservation",new Hotel());
 
         return "hotels/hotel_page";
     }
@@ -41,6 +42,7 @@ public class HotelController {
     public String Search2(Model model, @RequestParam("searchTermName") String pSearchTerm) {
         List<Hotel> hotelList = hotelService.searchByName(pSearchTerm);
         model.addAttribute("hotelList",hotelList);
+        model.addAttribute("reservation",new Hotel());
 
         return "hotels/hotel_page";
     }
