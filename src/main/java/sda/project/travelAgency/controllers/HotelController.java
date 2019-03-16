@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import sda.project.travelAgency.model.Hotel;
 import sda.project.travelAgency.services.HotelService;
 
@@ -23,7 +24,7 @@ public class HotelController {
         List<Hotel> hotelList = hotelService.getAllHotels();
         model.addAttribute("hotelList",hotelList);
         model.addAttribute("reservation",new Hotel());
-        //model.addAttribute("sum", new Hotel());
+
 
         return "hotels/hotel_page";
     }
@@ -47,19 +48,20 @@ public class HotelController {
         return "hotels/hotel_page";
     }
 
-    @RequestMapping(value = "/getReservation")
-    public String addHotelToUser(@ModelAttribute("reservation") Hotel hotel){
-        hotelService.getReservation(hotel.getIdHotel(),hotel.getNrCamere());
-
-        return "redirect:/";
+    @RequestMapping(value = "/getReservation", method = RequestMethod.POST)
+    public String addHotelToUser(@ModelAttribute("reservation") Hotel reservation, RedirectAttributes redirectAttributes){
+        hotelService.getReservation(reservation.getIdHotel(),reservation.getNrCamere());
+        redirectAttributes.addAttribute("camereRezervate", reservation.getNrCamere());
+        redirectAttributes.addAttribute("pretTotal", reservation.getPrice());
+        return "redirect:/hotels/getSum";
     }
 
-//    @RequestMapping(value = "/getSum", method = RequestMethod.POST)
-//    public String addSum(@ModelAttribute("sum") Hotel hotel){
-//        hotelService.getSum(hotel.getIdHotel(),hotel.getNrCamere(),hotel.getPrice());
-//
-//        return "redirect:/hotels/hotel_page_sum";
-//    }
+    @RequestMapping(value = "/getSum", method = RequestMethod.GET)
+    public String addSum(@ModelAttribute("camereRezervate") Integer nrCamere, @ModelAttribute("pretTotal") Double price, Model model){
+        model.addAttribute("reservationTotalPrice", nrCamere*price);
+
+        return "hotels/hotel_page_sum";
+    }
 
 
 }

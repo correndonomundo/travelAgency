@@ -31,7 +31,7 @@ public class HotelServiceImpl implements HotelService{
     @Override
     public Hotel getReservation(int idHotel, int nrCamere) {
         Hotel hotel = hotelRepository.getOne(idHotel);
-        hotel.setNrCamere(hotel.getNrCamere()-nrCamere);
+        hotel.setNrCamere(hotel.getNrCamere() - nrCamere);
 
         return hotelRepository.save(hotel);
     }

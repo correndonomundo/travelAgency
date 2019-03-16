@@ -1,6 +1,7 @@
 <form:form cssClass="form-inline" method="post" modelAttribute="reservation"
            action="/hotels/getReservation">
             <form:hidden path="idHotel" value="${hotel.idHotel}" />
+            <form:hidden path="price" value="${hotel.price}" />
     <div class="form-group mb-2 mx-sm-3">
         <form:input path="nrCamere" type="text" placeholder="Get number of rooms..."/>
     </div>
