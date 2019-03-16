@@ -1,10 +1,6 @@
 package sda.project.travelAgency.model;
 
-import sda.project.travelAgency.auth.model.User;
-
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,7 +8,7 @@ import java.util.List;
 public class Hotel {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idHotel;
 
     @Column
@@ -28,7 +24,7 @@ public class Hotel {
     private int nrCamere;
 
     @OneToMany(mappedBy = "hotel")
-    private List<User> users;
+    private List<RezervareHotel> rezervariHotel;
 
     public int getNrCamere() {
         return nrCamere;
@@ -70,12 +66,12 @@ public class Hotel {
         this.price = price;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<RezervareHotel> getRezervariHotel() {
+        return rezervariHotel;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setRezervariHotel(List<RezervareHotel> rezervariHotel) {
+        this.rezervariHotel = rezervariHotel;
     }
 
     @Override

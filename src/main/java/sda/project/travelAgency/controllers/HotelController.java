@@ -7,8 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import sda.project.travelAgency.auth.model.User;
 import sda.project.travelAgency.model.Hotel;
 import sda.project.travelAgency.services.HotelService;
+import sda.project.travelAgency.services.RezervareHotelService;
 
 import java.util.List;
 
@@ -18,6 +20,9 @@ public class HotelController {
 
     @Autowired
     private HotelService hotelService;
+
+    @Autowired
+    private RezervareHotelService rezervareHotelService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String showHotels(Model model){
@@ -48,9 +53,10 @@ public class HotelController {
         return "hotels/hotel_page";
     }
 
-    @RequestMapping(value = "/getReservation", method = RequestMethod.POST)
-    public String addHotelToUser(@ModelAttribute("reservation") Hotel reservation, RedirectAttributes redirectAttributes){
+    @RequestMapping(value = "/makeReservation", method = RequestMethod.POST)
+    public String addHotelToUser(@ModelAttribute("reservation") Hotel reservation, User user, RedirectAttributes redirectAttributes){
         hotelService.getReservation(reservation.getIdHotel(),reservation.getNrCamere());
+        rezervareHotelService.salvareBd(reservation,user);
         redirectAttributes.addAttribute("camereRezervate", reservation.getNrCamere());
         redirectAttributes.addAttribute("pretTotal", reservation.getPrice());
         return "redirect:/hotels/getSum";

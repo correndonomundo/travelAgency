@@ -1,9 +1,9 @@
 package sda.project.travelAgency.auth.model;
 
-import sda.project.travelAgency.model.Hotel;
+import sda.project.travelAgency.model.RezervareHotel;
 
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,10 +18,8 @@ public class User {
     private String password;
 
 
-    @ManyToOne
-    @JoinColumn(name = "id_hotell")
-    private Hotel hotel;
-
+    @OneToMany(mappedBy = "user")
+    private List<RezervareHotel> rezervareHotels;
 
     @Transient
     private String passwordConfirm;
@@ -70,11 +68,11 @@ public class User {
     }
 
 
-    public Hotel getHotel() {
-        return hotel;
+    public List<RezervareHotel> getRezervareHotels() {
+        return rezervareHotels;
     }
 
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
+    public void setRezervareHotels(List<RezervareHotel> rezervareHotels) {
+        this.rezervareHotels = rezervareHotels;
     }
 }

@@ -1,5 +1,5 @@
 <form:form cssClass="form-inline" method="post" modelAttribute="reservation"
-           action="/hotels/getReservation">
+           action="/hotels/makeReservation">
             <form:hidden path="idHotel" value="${hotel.idHotel}" />
             <form:hidden path="price" value="${hotel.price}" />
     <div class="form-group mb-2 mx-sm-3">
