@@ -1,6 +1,9 @@
 package sda.project.travelAgency.auth.model;
 
+import sda.project.travelAgency.model.Hotel;
+
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -14,15 +17,11 @@ public class User {
 
     private String password;
 
-    private String fullName;
 
-    public String getFullName() {
-        return fullName;
-    }
+    @ManyToOne
+    @JoinColumn(name = "id_hotell")
+    private Hotel hotel;
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
 
     @Transient
     private String passwordConfirm;
@@ -68,5 +67,14 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 }

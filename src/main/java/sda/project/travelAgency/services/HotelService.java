@@ -14,6 +14,5 @@ public interface HotelService {
 
     public Hotel getReservation(int idHotel, int nrCamere);
 
-    public double getSum(int idHotel,int nrCamere, double price);
 
 }

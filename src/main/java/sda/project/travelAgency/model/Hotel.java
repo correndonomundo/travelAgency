@@ -1,13 +1,18 @@
 package sda.project.travelAgency.model;
 
+import sda.project.travelAgency.auth.model.User;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "hotels")
 public class Hotel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private int idHotel;
 
     @Column
@@ -21,6 +26,9 @@ public class Hotel {
 
     @Column
     private int nrCamere;
+
+    @OneToMany(mappedBy = "hotel")
+    private List<User> users;
 
     public int getNrCamere() {
         return nrCamere;
@@ -60,6 +68,14 @@ public class Hotel {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     @Override

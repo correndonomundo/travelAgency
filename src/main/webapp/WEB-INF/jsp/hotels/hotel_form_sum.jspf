@@ -1,8 +1,0 @@
-<form:form cssClass="form-inline" method="post" modelAttribute="sum"
-           action="/hotels/getSum">
-           <form:hidden path="idHotel" value="${hotel.idHotel}" />
-            <form:hidden path="nrCamere" value="${hotel.nrCamere}" />
-    <div class="form-group mb-2 mx-sm-3">
-        <input path="price" value="${hotel.price}"/>
-    </div>
-</form:form>

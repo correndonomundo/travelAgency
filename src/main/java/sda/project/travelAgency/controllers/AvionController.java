@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import sda.project.travelAgency.model.Avion;
 import sda.project.travelAgency.model.Hotel;
 import sda.project.travelAgency.services.AvionService;
@@ -56,18 +57,20 @@ public class AvionController {
         return "avioane/avioane_page";
     }
 
-    @RequestMapping(value = "/getReservation")
-    public String addAvionToUser(@ModelAttribute("reservation") Avion avion){
-        avionService.getReservation(avion.getIdCursa(),avion.getNrLocuri());
-
-        return "redirect:/";
+    @RequestMapping(value = "/getReservation", method = RequestMethod.POST)
+    public String addAvionToUser(@ModelAttribute("reservation") Avion rezZbor, RedirectAttributes redirectAttribute){
+        avionService.getReservation(rezZbor.getIdCursa(),rezZbor.getNrLocuri());
+        redirectAttribute.addAttribute("locuriRezervate", rezZbor.getNrLocuri());
+        redirectAttribute.addAttribute("pretTotal", rezZbor.getPrice());
+        return "redirect:/avioane/getSum";
     }
 
-//    @RequestMapping(value = "/getSum", method = RequestMethod.POST)
-//    public String addSum(@ModelAttribute("sum") Hotel hotel){
-//        hotelService.getSum(hotel.getIdHotel(),hotel.getNrCamere(),hotel.getPrice());
-//
-//        return "redirect:/hotels/hotel_page_sum";
-//    }
+    @RequestMapping(value = "/getSum", method = RequestMethod.GET)
+
+        public String addSum(@ModelAttribute("locuriRezervate") Integer nrLocuri, @ModelAttribute("pretTotal") Double price, Model model){
+            model.addAttribute("reservationTotalPrice", nrLocuri*price);
+
+        return "avioane/avion_page_sum";
+    }
 
 }
