@@ -36,21 +36,7 @@ public class AvionServiceImpl implements AvionService {
     }
 
     @Override
-    public Avion getReservation(int idCursa, int nrLocuri) {
-        Avion avion = avionRepository.getOne(idCursa);
-        avion.setNrLocuri(avion.getNrLocuri()-nrLocuri);
-
-        return avionRepository.save(avion);
-    }
-
-    @Override
-    public double getSum(int idCursa,int nrlocuri, double price) {
-        Avion avion = avionRepository.getOne(idCursa);
-        AvionService avionService = new AvionServiceImpl();
-        Avion av = avionService.getReservation(avion.getIdCursa(),avion.getNrLocuri());
-        double pretRezervareAvion = av.getNrLocuri() * avion.getPrice();
-
-        return pretRezervareAvion;
-
+    public Avion getAvionById(int idCursa) {
+        return avionRepository.getOne(idCursa);
     }
 }

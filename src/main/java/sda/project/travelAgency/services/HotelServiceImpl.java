@@ -32,8 +32,6 @@ public class HotelServiceImpl implements HotelService{
           return hotelRepository.findAllByNameHotel(nameHotel);
     }
 
-
-
     @Override
     public Hotel getHotelById(int id) {
         return hotelRepository.getOne(id);

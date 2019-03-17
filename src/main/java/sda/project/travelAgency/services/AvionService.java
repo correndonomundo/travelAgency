@@ -15,7 +15,5 @@ public interface AvionService {
 
     public List<Avion> searchByDate(String date);
 
-    public Avion getReservation(int idCursa, int nrLocuri);
-
-    public double getSum(int idCursa,int nrLocuri, double price);
+    public Avion getAvionById(int idCursa);
 }

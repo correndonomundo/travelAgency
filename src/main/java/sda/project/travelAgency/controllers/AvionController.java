@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import sda.project.travelAgency.auth.model.User;
+import sda.project.travelAgency.auth.repositories.UserRepository;
+import sda.project.travelAgency.auth.service.UserService;
 import sda.project.travelAgency.model.Avion;
 import sda.project.travelAgency.model.Hotel;
+import sda.project.travelAgency.model.RezervareAvion;
 import sda.project.travelAgency.services.AvionService;
+import sda.project.travelAgency.services.RezervareAvionService;
 
 import java.util.List;
 
@@ -21,11 +26,17 @@ public class AvionController {
     @Autowired
     private AvionService avionService;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private RezervareAvionService rezervareAvionService;
+
     @RequestMapping(method = RequestMethod.GET)
     public String showAvioane(Model model){
         List<Avion> avionList = avionService.getAllAvioane();
         model.addAttribute("avionList", avionList);
-        model.addAttribute("reservation", new Avion());
+        model.addAttribute("reservation", new ReservationFormAvionDto());
 
         return "avioane/avioane_page";
     }
@@ -34,7 +45,7 @@ public class AvionController {
     public String Search(Model model, @RequestParam("searchTerm") String pSearchTerm) {
         List<Avion> avionList = avionService.searchByDestination(pSearchTerm);
         model.addAttribute("avionList",avionList);
-        model.addAttribute("reservation", new Avion());
+        model.addAttribute("reservation", new ReservationFormAvionDto());
 
         return "avioane/avioane_page";
     }
@@ -43,7 +54,7 @@ public class AvionController {
     public String Search2(Model model, @RequestParam("searchTermDate") String pSearchTerm) {
         List<Avion> avionList = avionService.searchByDate(pSearchTerm);
         model.addAttribute("avionList",avionList);
-        model.addAttribute("reservation", new Avion());
+        model.addAttribute("reservation", new ReservationFormAvionDto());
 
         return "avioane/avioane_page";
     }
@@ -52,16 +63,20 @@ public class AvionController {
     public String Search3(Model model, @RequestParam("searchTermStartPoint") String pSearchTerm) {
         List<Avion> avionList = avionService.searchByStartPoint(pSearchTerm);
         model.addAttribute("avionList",avionList);
-        model.addAttribute("reservation", new Avion());
+        model.addAttribute("reservation", new ReservationFormAvionDto());
 
         return "avioane/avioane_page";
     }
 
     @RequestMapping(value = "/getReservation", method = RequestMethod.POST)
-    public String addAvionToUser(@ModelAttribute("reservation") Avion rezZbor, RedirectAttributes redirectAttribute){
-        avionService.getReservation(rezZbor.getIdCursa(),rezZbor.getNrLocuri());
-        redirectAttribute.addAttribute("locuriRezervate", rezZbor.getNrLocuri());
-        redirectAttribute.addAttribute("pretTotal", rezZbor.getPrice());
+    public String addAvionToUser(@ModelAttribute("reservation") ReservationFormAvionDto rezervare , RedirectAttributes redirectAttribute){
+        //avionService.getReservation(rezZbor.getIdCursa(),rezZbor.getNrLocuri());
+        Avion avion = avionService.getAvionById(rezervare.getIdCursa());
+        User user = userService.findByUsername(rezervare.getUsername());
+        RezervareAvion rezervareAvion = rezervareAvionService.creazaReervareAvion(avion,user,rezervare.getNrLocuri());
+        redirectAttribute.addAttribute("locuriRezervate", rezervareAvion.getNrLocuri());
+        redirectAttribute.addAttribute("pretTotal", rezervareAvion.getPret());
+
         return "redirect:/avioane/getSum";
     }
 

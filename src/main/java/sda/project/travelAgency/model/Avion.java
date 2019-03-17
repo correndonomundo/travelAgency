@@ -1,5 +1,6 @@
 package sda.project.travelAgency.model;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "avioane")
@@ -23,6 +24,17 @@ public class Avion {
 
     @Column
     private int nrLocuri;
+
+    @OneToMany(mappedBy = "avion")
+    private List<RezervareAvion> rezervareAvions;
+
+    public List<RezervareAvion> getRezervareAvions() {
+        return rezervareAvions;
+    }
+
+    public void setRezervareAvions(List<RezervareAvion> rezervareAvions) {
+        this.rezervareAvions = rezervareAvions;
+    }
 
     public int getIdCursa() {
         return idCursa;

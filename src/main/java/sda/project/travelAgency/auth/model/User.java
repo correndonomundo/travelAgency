@@ -1,5 +1,6 @@
 package sda.project.travelAgency.auth.model;
 
+import sda.project.travelAgency.model.RezervareAvion;
 import sda.project.travelAgency.model.RezervareHotel;
 
 import javax.persistence.*;
@@ -20,6 +21,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<RezervareHotel> rezervareHotels;
+
+    @OneToMany(mappedBy = "user")
+    private List<RezervareAvion> rezervareAvioane;
 
     @Transient
     private String passwordConfirm;
@@ -74,5 +78,13 @@ public class User {
 
     public void setRezervareHotels(List<RezervareHotel> rezervareHotels) {
         this.rezervareHotels = rezervareHotels;
+    }
+
+    public List<RezervareAvion> getRezervareAvioane() {
+        return rezervareAvioane;
+    }
+
+    public void setRezervareAvioane(List<RezervareAvion> rezervareAvioane) {
+        this.rezervareAvioane = rezervareAvioane;
     }
 }
