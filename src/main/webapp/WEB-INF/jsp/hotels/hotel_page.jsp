@@ -6,13 +6,13 @@
 <div class="container mt-5">
 
 
-    <div class="row">
+    <div class="page">
         <%@include file="hotel_form_dest.jspf" %>
     </div>
-    <div class="row">
+    <div class="roww">
             <%@include file="hotel_form_name.jspf" %>
         </div>
-    <div class="row">
+    <div class="roww">
         <%@include file="hotel_table.jspf" %>
     </div>
 

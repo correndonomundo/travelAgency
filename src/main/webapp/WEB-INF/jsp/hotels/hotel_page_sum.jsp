@@ -4,13 +4,13 @@
 <%@ include file="../princCommand/navbar.jspf" %>
 
 <div class="container mt-5">
-  <div class="row">
-  <h1 class"row">
+  <div class="suma">
+  <h1 class"suma">
      Rezervarea a fost facuta cu succes!!!
   </h1>
   </br>
      <div class="sum">
-         Pretul este: ${reservationTotalPrice}
+         Pretul este: ${reservationTotalPrice} lei!!
      </div>
   <div>
 

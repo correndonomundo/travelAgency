@@ -7,7 +7,7 @@
 
 
 
-    <div class="row">
+    <div class="page">
             <%@include file="avion_form_start.jspf" %>
         </div>
 
@@ -19,7 +19,7 @@
                     <%@include file="avion_form_date.jspf" %>
                 </div>
 
-    <div class="row">
+    <div class="roww">
         <%@include file="avion_table.jspf" %>
     </div>
 

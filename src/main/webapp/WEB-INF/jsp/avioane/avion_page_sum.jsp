@@ -4,8 +4,8 @@
 <%@ include file="../princCommand/navbar.jspf" %>
 
 <div class="container mt-5">
-  <div class="row">
-  <h1 class"row">
+  <div class="suma">
+  <h1 class"suma">
      Zborul a fost rezervat cu succes!!!
   </h1>
   </br>
