@@ -14,7 +14,7 @@
     <div class="list-group">
         <c:forEach items="${hotelList}" var="hotel">
         <tr>
-           <td>${hotel.getIdHotel()}</td>
+           <td>${hotel.getId()}</td>
            <td>${hotel.getNameHotel()}</td>
            <td>${hotel.getDestination()}</td>
            <td>${hotel.getNrCamere()}</td>

@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Avion {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCursa;
 
     @Column

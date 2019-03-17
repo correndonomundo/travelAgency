@@ -1,9 +1,9 @@
 <form:form cssClass="form-inline" method="post" modelAttribute="reservation"
            action="/hotels/makeReservation">
-            <form:hidden path="idHotel" value="${hotel.idHotel}" />
-            <form:hidden path="price" value="${hotel.price}" />
+            <form:hidden path="idHotel" value="${hotel.id}" />
+            <form:hidden path="username" value="${pageContext.request.userPrincipal.name}" />
     <div class="form-group mb-2 mx-sm-3">
-        <form:input path="nrCamere" type="text" placeholder="Get number of rooms..."/>
+        <form:input path="nrCamere" type="number" placeholder="Get number of rooms..."/>
     </div>
     <form:button type="submit" class="btn btn-primary mb-2">AddHotel</form:button>
 </form:form>

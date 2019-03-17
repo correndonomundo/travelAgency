@@ -9,7 +9,7 @@ public class Hotel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idHotel;
+    private int id;
 
     @Column
     private String nameHotel;
@@ -34,12 +34,12 @@ public class Hotel {
         this.nrCamere = nrCamere;
     }
 
-    public int getIdHotel() {
-        return idHotel;
+    public int getId() {
+        return id;
     }
 
-    public void setIdHotel(int idHotel) {
-        this.idHotel = idHotel;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNameHotel() {
@@ -77,7 +77,7 @@ public class Hotel {
     @Override
     public String toString() {
         return "Hotel{" +
-                "idHotel=" + idHotel +
+                "id=" + id +
                 ", nameHotel='" + nameHotel + '\'' +
                 ", destination='" + destination + '\'' +
                 ", price=" + price +

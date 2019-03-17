@@ -9,8 +9,14 @@ import javax.persistence.*;
 public class RezervareHotel {
 
     @Id
-    @GeneratedValue
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column
+    private int nrCamere;
+
+    @Column
+    private double pret;
 
     @ManyToOne
     @JoinColumn(name = "id_hotel")
@@ -42,5 +48,21 @@ public class RezervareHotel {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getNrCamere() {
+        return nrCamere;
+    }
+
+    public void setNrCamere(int nrCamere) {
+        this.nrCamere = nrCamere;
+    }
+
+    public double getPret() {
+        return pret;
+    }
+
+    public void setPret(double pret) {
+        this.pret = pret;
     }
 }

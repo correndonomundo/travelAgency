@@ -22,12 +22,19 @@ public class RezervareHotelServiceImpl implements RezervareHotelService{
     private UserRepository userRepository;
 
     @Override
-    public RezervareHotel salvareBd(Hotel hotel, User user){
+    public RezervareHotel creazaRezervare(Hotel hotel, User user, int nrCamere){
         RezervareHotel rezervare = new RezervareHotel();
-        Hotel h = hotelRepository.findById(hotel.getIdHotel()).get();
+        Hotel h = hotelRepository.findById(hotel.getId()).get();
         User u = userRepository.findByUsername(user.getUsername());
+
         rezervare.setHotel(h);
         rezervare.setUser(u);
+        rezervare.setNrCamere(nrCamere);
+        rezervare.setPret(nrCamere*h.getPrice());
+
+        h.setNrCamere(h.getNrCamere() - nrCamere);
+        hotelRepository.save(h);
+
         return rezervareHotelRepository.save(rezervare);
     }
 }

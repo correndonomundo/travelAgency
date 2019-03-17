@@ -5,5 +5,5 @@ import sda.project.travelAgency.model.Hotel;
 import sda.project.travelAgency.model.RezervareHotel;
 
 public interface RezervareHotelService {
-    RezervareHotel salvareBd(Hotel hotel, User user);
+    RezervareHotel creazaRezervare(Hotel hotel, User user, int nrCamere);
 }
